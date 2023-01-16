@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Generate a LinkedIn bio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#e0eafc] to-[#cfdef3]">
         <div className="w-1/4">
           <textarea
