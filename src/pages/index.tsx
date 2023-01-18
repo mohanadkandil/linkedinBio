@@ -34,9 +34,9 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <main className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#242628] to-[#272A2C]">
-        <div className="my-10 text-center text-white">
-          <h1 className="text-5xl font-bold">LinkedIn BioCraft</h1>
-          <p className="mt-2 text-xl font-semibold">
+        <div className="my-10 text-center">
+          <h1 className="text-5xl font-bold text-white">LinkedIn BioCraft</h1>
+          <p className="mt-2 text-xl font-medium text-white/60">
             Write a small context about you, and bio crafter will generate the
             rest
           </p>
