@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
@@ -24,6 +25,19 @@ const Home: NextPage = () => {
     const { output } = data;
     setBio(output.text);
     setIsGenerating(false);
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(bio)
+      .then(
+        toast("Bio copied to clipboard", {
+          icon: "✂️",
+        })
+      )
+      .catch((err: string) => {
+        toast(`Error copying bio to clipboard ${err}`, { icon: "🚨" });
+      });
   };
   return (
     <>
@@ -48,6 +62,11 @@ const Home: NextPage = () => {
             className="w-full rounded-md border-gray-200 bg-[#3B3B3B] p-2 text-white shadow-sm focus:border-black focus:ring-black"
             placeholder={"e.g. jr frontend engineer."}
           ></textarea>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{ duration: 2000 }}
+          />
           <div className="flex justify-center">
             <button
               onClick={generateBio}
@@ -58,7 +77,12 @@ const Home: NextPage = () => {
           </div>
           <div className="mt-12">
             {bio && (
-              <div className="rounded-xl bg-white/10 p-5 text-white">{bio}</div>
+              <div
+                className="cursor-copy rounded-xl bg-white/10 p-5 text-white"
+                onClick={copyToClipboard}
+              >
+                <p>{bio}</p>
+              </div>
             )}
           </div>
         </div>
