@@ -7,15 +7,18 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+const base =
+  "Genrate a professional and effective LinkedIn bio based on the following context:";
+
 export default async function handler(req: NextRequest, res: NextResponse) {
-  const completion = await openai.createCompletion({
-    model: "text-davinci-002",
-    prompt: req.query.prompt,
+  const baseCompletion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: `${base}${req.body.text}`,
     temperature: 0.7,
-    top_p: 1,
-    frequency_penalty: 0,
-    presence_penalty: 0,
-    max_tokens: 256,
+    max_tokens: 250,
   });
-  res.status(200).json(completion.data);
+
+  const basePromptOutput = baseCompletion.data.choices.pop();
+
+  res.status(200).json({ output: basePromptOutput });
 }
