@@ -1,28 +1,24 @@
-# Create T3 App
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+# LinkedIn BioCrafter
 
-## What's next? How do I make an app with this?
+Insert a simple context about you and generate an effective and professional one for LinkedIn Bio.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Demo
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+![App Screenshot](https://i.ibb.co/6XLC14M/image.png)
 
-## Learn More
+![App Screenshot](https://i.ibb.co/YyCz3RY/image.png)
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## How it works
+This project uses the OpenAI GPT-3 API (specifically, text-davinci-003) and Vercel Edge functions with streaming. It constructs a prompt based on the form and user input, sends it to the GPT-3 API via a Vercel Edge function, then streams the response back to the application.
+## Running Locally
+After cloning the repo, go to OpenAI to make an account and put your API key in a file called .env.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+Then, run the application in the command line and it will be available at http://localhost:3000.
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+```bash
+  npm run dev
+```
+    
