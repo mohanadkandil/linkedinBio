@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex justify-center p-4 font-semibold">
+    <div className="fixed flex justify-center font-semibold text-white">
       <p>
         Developed by{" "}
         <a
@@ -11,6 +11,6 @@ export default function Footer() {
           <span>Mohanad Kandil</span>
         </a>
       </p>
-    </footer>
+    </div>
   );
 }
